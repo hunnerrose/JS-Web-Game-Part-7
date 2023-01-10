@@ -5,7 +5,24 @@ const pc = newPlayableCharacter(100, 110)
 const npc = newNonPlayableCharacter(50, 300)
 
 // have the NPC start walking east immediately
-npc.walkEast()
+async function moveNPC(){
+    await npc.walkEast(2000)
+    await npc.walkSouth(1000)
+    npc.walkWest(1000)
+}
+
+async function complexTrack(){
+    await npc.walkNorth(1400)
+    await npc.walkEast(1200)
+    await npc.walkSouth(300)
+    await npc.walkEast(1500)
+    await npc.walkSouth(1500)
+    await npc.walkWest(2700)
+    npc.walkNorth(400)
+}
+// HUNTER: I wanna know how to loop the track but I'm not sure how to go about doing that. I know it includes using a for loop (although I was thinking a while loop would be better) but I'm not sure how to go about doing that since we're not working with an array length in this case. Any tips?
+complexTrack()
+
 
 // Create the inventory
 const inventory = newInventory()
